@@ -5,7 +5,7 @@ function Cliente({ nome, data }) {
         <h2>NOME</h2>
         <h2>DIA/HORA</h2>
       </div>
-      <div className="flex justify-between font-thin">
+      <div className="flex justify-between font-light">
         <div>{nome}</div>
         <div>{data}</div>
       </div>

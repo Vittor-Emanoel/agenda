@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Sora', sans-serif;
 }
 h1 {
   background: linear-gradient(222.87deg, #4de4fd 22.79%, #9a6bff 82.59%);
