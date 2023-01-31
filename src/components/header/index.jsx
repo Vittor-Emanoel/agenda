@@ -2,7 +2,7 @@ import { Plus } from 'phosphor-react'
 
 function Header() {
   return (
-    <header className="w-full flex justify-center items-center flex-col mt-12 border ">
+    <header className="w-full flex justify-center items-center flex-col mt-12    ">
       <div className="flex w-1/3 justify-between gap-12 mt-8">
         <h className="font-extrabold text-4xl">MyAgenda</h>
         <button>
