@@ -1,4 +1,5 @@
 import axios from 'axios'
+import moment from 'moment'
 import { useEffect, useState } from 'react'
 import Cliente from '../cliente'
 
@@ -16,17 +17,16 @@ function Container() {
 
   useEffect(() => {
     fetchApi()
-    console.log(dados)
   }, [])
 
   return (
-    <div className="w-full h-screen  flex  justify-center">
+    <div className="w-full max-h-min flex  justify-center">
       <div className="flex w-1/3 mt-2 flex-col gap-6">
         {dados.map((cliente) => (
           <Cliente
-            key={cliente.id}
+            key={cliente._id}
             nome={cliente.name}
-            data={cliente.dateAndHours}
+            data={moment(cliente.date).format('DD/MM/YYYY HH:mm:ss')}
           />
         ))}
       </div>

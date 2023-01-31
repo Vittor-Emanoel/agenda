@@ -1,15 +1,13 @@
 function Cliente({ nome, data }) {
   return (
-    <div className="w-full h-16 flex flex-col justify-center p-3   bg-slate-300">
-      <div className="flex justify-between">
-        <h2 className="font-medium">Nome</h2>
-        <h2 className="font-medium">Data</h2>
+    <div className="w-full h-16 flex flex-col justify-center p-3 border text-gray-600">
+      <div className="flex justify-between font-bold">
+        <h2>NOME</h2>
+        <h2>DIA/HORA</h2>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between font-thin">
         <div>{nome}</div>
-        <div>
-          {data} <span>12:00</span>
-        </div>
+        <div>{data}</div>
       </div>
     </div>
   )
