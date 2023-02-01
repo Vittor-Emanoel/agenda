@@ -1,13 +1,23 @@
-import NovoCliente from '../novo'
+import { Plus } from 'phosphor-react'
+import { useNavigate } from 'react-router-dom'
 
 function Header() {
+  const navigate = useNavigate()
+
+  const handleNavigate = () => {
+    navigate('/novo')
+  }
+
   return (
-    <header className="w-full min-w-full flex justify-center items-center flex-col mt-12 first-letter:">
+    <header className="w-full min-w-full flex justify-center items-center flex-col mt-12 ">
       <div className="flex w-1/3 justify-between gap-12 mt-8">
         <h1 className="font-extrabold text-4xl bg-transparent text-transparent bg-clip-text">
           MyAgenda
         </h1>
-        <NovoCliente />
+
+        <button onClick={handleNavigate}>
+          <Plus size={32} />
+        </button>
       </div>
       <div className="w-full flex justify-center">
         <input

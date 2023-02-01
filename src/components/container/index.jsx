@@ -20,7 +20,7 @@ function Container() {
   }, [])
 
   return (
-    <div className="w-full max-h-min flex  justify-center">
+    <div className="w-full max-h-min flex  justify-center border">
       <div className="flex w-1/3 mt-2 flex-col gap-6">
         {dados.map((cliente) => (
           <Cliente
