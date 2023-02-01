@@ -21,6 +21,8 @@ function Novo() {
         date: date,
         description: description,
       })
+      alert(`Cadastrado com sucesso`)
+      await hoToBack()
     } catch (error) {
       console.log(error)
     }

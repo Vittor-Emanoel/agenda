@@ -21,6 +21,7 @@ function Container() {
         `http://localhost:3000/agendamentos/${id}`
       )
       await fetchApi()
+      alert(`Excluido com sucesso`)
     } catch (error) {
       console.log(error)
     }
@@ -38,6 +39,7 @@ function Container() {
             key={cliente._id}
             nome={cliente.name}
             data={moment(cliente.date).format('DD/MM/YYYY HH:mm:ss')}
+            description={cliente.description}
             handleClick={() => handleClick(cliente._id)}
           />
         ))}

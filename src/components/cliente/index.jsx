@@ -1,7 +1,7 @@
-function Cliente({ nome, data, handleClick }) {
+function Cliente({ nome, data, description, handleClick }) {
   return (
     <div
-      className="w-full h-16 flex flex-col justify-center p-3  text-gray-600 border"
+      className="w-full h-28 flex flex-col justify-center p-4  text-gray-600 border"
       onClick={handleClick}
     >
       <div className="flex justify-between font-bold">
@@ -9,8 +9,14 @@ function Cliente({ nome, data, handleClick }) {
         <h2>DIA/HORA</h2>
       </div>
       <div className="flex justify-between font-light ">
-        <div>{nome}</div>
-        <div>{data}</div>
+        <small>{nome}</small>
+        <small>{data}</small>
+      </div>
+      <div>
+        <strong className="flex justify-between font-bold mt-2">
+          Descrição
+        </strong>
+        <small>{description}</small>
       </div>
     </div>
   )
