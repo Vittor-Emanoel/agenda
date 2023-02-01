@@ -16,11 +16,14 @@ function Novo() {
   const handlePost = async (e) => {
     e.preventDefault()
     try {
-      const { data } = await axios.post('http://localhost:3000/agendamentos', {
-        name: name,
-        date: date,
-        description: description,
-      })
+      const { data } = await axios.post(
+        'https://api-todo-sigma.vercel.app/agendamentos',
+        {
+          name: name,
+          date: date,
+          description: description,
+        }
+      )
       alert(`Cadastrado com sucesso`)
       await hoToBack()
     } catch (error) {

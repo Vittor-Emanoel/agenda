@@ -8,7 +8,9 @@ function Container() {
 
   const fetchApi = async () => {
     try {
-      const { data } = await axios.get('http://localhost:3000/agendamentos')
+      const { data } = await axios.get(
+        'https://api-todo-sigma.vercel.app/agendamentos'
+      )
       setDados(data)
     } catch (error) {
       console.log(error)
@@ -18,7 +20,7 @@ function Container() {
   const handleClick = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/agendamentos/${id}`
+        `https://api-todo-sigma.vercel.app/agendamentos/${id}`
       )
       await fetchApi()
       alert(`Excluido com sucesso`)
