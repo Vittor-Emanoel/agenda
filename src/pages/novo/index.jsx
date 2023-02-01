@@ -9,13 +9,19 @@ function Novo() {
 
   const navigate = useNavigate()
 
-  const handlePost = async () => {
+  const hoToBack = () => {
+    navigate('/')
+  }
+
+  const handlePost = async (e) => {
+    e.preventDefault()
     try {
       const { data } = await axios.post('http://localhost:3000/agendamentos', {
         name: name,
         date: date,
         description: description,
       })
+      hoToBack()
     } catch (error) {
       console.log(error)
     }
@@ -23,7 +29,7 @@ function Novo() {
 
   return (
     <div className="w-1/3 flex flex-col m-auto mt-16 ">
-      <h1 className="font-extrabold text-3xl bg-transparent text-transparent bg-clip-text text-center mb-5">
+      <h1 className="font-extrabold text-4xl bg-transparent text-transparent bg-clip-text text-center mb-5">
         Cadastrar novo Cliente
       </h1>
 
@@ -45,13 +51,13 @@ function Novo() {
         />
         <label htmlFor="">Descrição</label>
         <textarea
-          className="border bg-slate-100"
+          className="border bg-slate-100 p-2"
           cols="30"
           rows="5"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
-        <button className="mt-4 border p-2 bg-slate-300" onClick={handlePost}>
+        <button className="mt-4 border p-2 bg-slate-50" onClick={handlePost}>
           Salvar
         </button>
 
