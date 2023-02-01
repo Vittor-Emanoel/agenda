@@ -2,9 +2,10 @@
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
-    color: {
-      modal: '#202024',
+    extend: {
+      colors: {
+        button: ' rgb(45, 164, 78)',
+      },
     },
   },
   plugins: [],

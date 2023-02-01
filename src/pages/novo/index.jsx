@@ -31,7 +31,7 @@ function Novo() {
   return (
     <div className="w-1/3 flex flex-col m-auto mt-16 ">
       <h1 className="font-extrabold text-4xl bg-transparent text-transparent bg-clip-text text-center mb-5">
-        Cadastrar novo Cliente
+        Novo cadastro
       </h1>
 
       <form action="" className="flex flex-col">
@@ -58,7 +58,7 @@ function Novo() {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
-        <button className="mt-4 border p-2 bg-slate-50" onClick={handlePost}>
+        <button className="mt-4  p-2 bg-button text-white" onClick={handlePost}>
           Salvar
         </button>
 

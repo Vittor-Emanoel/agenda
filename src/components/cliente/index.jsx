@@ -1,7 +1,7 @@
 function Cliente({ nome, data, description, handleClick }) {
   return (
     <div
-      className="w-full h-28 flex flex-col justify-center p-4  text-gray-600 border"
+      className="w-full h-28 flex flex-col justify-center p-4  text-gray-600 border rounded-lg"
       onClick={handleClick}
     >
       <div className="flex justify-between font-bold">
