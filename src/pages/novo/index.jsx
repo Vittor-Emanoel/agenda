@@ -21,7 +21,6 @@ function Novo() {
         date: date,
         description: description,
       })
-      hoToBack()
     } catch (error) {
       console.log(error)
     }

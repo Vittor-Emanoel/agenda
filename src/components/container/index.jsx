@@ -15,6 +15,17 @@ function Container() {
     }
   }
 
+  const handleClick = async (id) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:3000/agendamentos/${id}`
+      )
+      await fetchApi()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
     fetchApi()
   }, [])
@@ -27,6 +38,7 @@ function Container() {
             key={cliente._id}
             nome={cliente.name}
             data={moment(cliente.date).format('DD/MM/YYYY HH:mm:ss')}
+            handleClick={() => handleClick(cliente._id)}
           />
         ))}
       </div>
