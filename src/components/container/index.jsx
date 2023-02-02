@@ -1,10 +1,15 @@
 import axios from 'axios'
 import moment from 'moment'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css'
 import Cliente from '../cliente'
 
 function Container() {
   const [dados, setDados] = useState([])
+  const [alert, setAlert] = useState(false)
+
+  const navigate = useNavigate()
 
   const fetchApi = async () => {
     try {
@@ -23,10 +28,13 @@ function Container() {
         `https://api-todo-sigma.vercel.app/agendamentos/${id}`
       )
       await fetchApi()
-      alert(`Excluido com sucesso`)
     } catch (error) {
       console.log(error)
     }
+  }
+
+  const handleEdit = async (id) => {
+    navigate(`/editar/${id}`)
   }
 
   useEffect(() => {
@@ -43,9 +51,11 @@ function Container() {
             data={moment(cliente.date).format('DD/MM/YYYY HH:mm:ss')}
             description={cliente.description}
             handleClick={() => handleClick(cliente._id)}
+            handleEdit={() => handleEdit(cliente._id)}
           />
         ))}
       </div>
+      {/* <AlertComponent /> */}
     </div>
   )
 }
