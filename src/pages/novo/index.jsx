@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 
 function Novo() {
@@ -7,6 +8,16 @@ function Novo() {
   const [date, setDate] = useState('')
   const [description, setDescription] = useState('')
 
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setError,
+    formState: { errors },
+  } = useForm()
+  const onSubmit = (data) => console.log(data)
+
+  const watchPassword = watch('name')
   const navigate = useNavigate()
 
   const hoToBack = () => {
@@ -24,10 +35,11 @@ function Novo() {
           description: description,
         }
       )
-      alert(`Cadastrado com sucesso`)
       await hoToBack()
     } catch (error) {
-      console.log(error)
+      setError('input', {
+        type: 'required',
+      })
     }
   }
 
@@ -37,8 +49,13 @@ function Novo() {
         Novo cadastro
       </h1>
 
-      <form action="" className="flex flex-col">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
         <label htmlFor="">Nome</label>
+        {errors.input?.type === 'required' && (
+          <small role="alert" className="text-red-500">
+            campo obrigatório
+          </small>
+        )}
         <input
           className="w-full p-2 mt-2 mb-5 bg-slate-100 border"
           type="text"
@@ -46,6 +63,13 @@ function Novo() {
           placeholder="Digite o nome do seu compromisso..."
           onChange={(e) => setName(e.target.value)}
         />
+
+        {errors.input?.type === 'required' && (
+          <small role="alert" className="text-red-500">
+            {' '}
+            campo obrigatório
+          </small>
+        )}
         <label htmlFor="">Data/Horário</label>
         <input
           className="w-full bg-slate-100 p-2 mt-2 mb-5"
@@ -53,6 +77,12 @@ function Novo() {
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />
+        {errors.input?.type === 'required' && (
+          <small role="alert" className="text-red-500">
+            {' '}
+            campo obrigatório
+          </small>
+        )}
         <label htmlFor="">Descrição</label>
         <textarea
           className="border bg-slate-100 p-2"
