@@ -1,7 +1,9 @@
 import axios from 'axios'
 import { createContext, useEffect, useState } from 'react'
 
-export const GlobalContext = createContext(null)
+export const GlobalContext = createContext({
+  dados: [],
+})
 
 export const GlobalProvider = ({ children }) => {
   const [dados, setDados] = useState([])
@@ -23,6 +25,8 @@ export const GlobalProvider = ({ children }) => {
   }, [])
 
   return (
-    <GlobalContext.Provider value={[dados]}>{children}</GlobalContext.Provider>
+    <GlobalContext.Provider value={{ dados, setDados }}>
+      {children}
+    </GlobalContext.Provider>
   )
 }

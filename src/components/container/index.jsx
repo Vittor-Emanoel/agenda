@@ -1,11 +1,12 @@
 import axios from 'axios'
 import moment from 'moment'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { GlobalContext } from '../../contexts/globalContext'
 import Schedules from '../schedules'
 
 function Container() {
-  const [dados, setDados] = useState([])
+  const { dados, setDados } = useContext(GlobalContext)
 
   const navigate = useNavigate()
 
