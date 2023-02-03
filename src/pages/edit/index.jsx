@@ -1,5 +1,7 @@
+import Form from '../../components/form'
+
 function EditPage() {
-  return <></>
+  return <Form title="Editar Cadastro" />
 }
 
 export default EditPage
