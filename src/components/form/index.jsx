@@ -1,18 +1,32 @@
+import axios from 'axios'
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../../contexts/globalContext'
 import CustomInput from '../input-component'
 
 function Form({ title }) {
-  const {
-    date,
-    setName,
-    setDate,
-    setDescription,
-    description,
-    name,
-    handlePost,
-  } = useContext(GlobalContext)
+  const navigate = useNavigate()
+
+  const { date, setName, setDate, setDescription, description, name } =
+    useContext(GlobalContext)
+
+  const hoToBack = () => {
+    navigate('/')
+  }
+
+  const handlePost = async (e) => {
+    e.preventDefault()
+    try {
+      await axios.post('https://api-todo-sigma.vercel.app/agendamentos', {
+        name: name,
+        date: date,
+        description: description,
+      })
+      await hoToBack()
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className="w-1/3 flex flex-col m-auto mt-16 ">
@@ -58,7 +72,11 @@ function Form({ title }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
-        <button className="mt-4  p-2 bg-button text-white" onClick={handlePost}>
+        <button
+          type="submit"
+          className="mt-4  p-2 bg-button text-white"
+          onClick={handlePost}
+        >
           Salvar
         </button>
 
