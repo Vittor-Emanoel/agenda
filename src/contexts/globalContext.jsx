@@ -1,17 +1,18 @@
 import axios from 'axios'
 import { createContext, useEffect, useState } from 'react'
 
-export const GlobalContext = createContext()
+export const GlobalContext = createContext(null)
 
 export const GlobalProvider = ({ children }) => {
-  const [name, setName] = useState([])
+  const [dados, setDados] = useState([])
 
   const fetchApi = async () => {
     try {
       const { data } = await axios.get(
         'https://api-todo-sigma.vercel.app/agendamentos'
       )
-      setName({ data })
+      console.log(data)
+      setDados(data)
     } catch (err) {
       console.log(err)
     }
@@ -22,6 +23,6 @@ export const GlobalProvider = ({ children }) => {
   }, [])
 
   return (
-    <GlobalContext.Provider value={name}>{children}</GlobalContext.Provider>
+    <GlobalContext.Provider value={[dados]}>{children}</GlobalContext.Provider>
   )
 }
