@@ -1,6 +1,6 @@
 import { Pencil, Trash } from 'phosphor-react'
 
-function Cliente({ nome, data, description, handleClick, handleEdit }) {
+function Schedules({ nome, data, description, handleClick, handleEdit }) {
   return (
     <div className="w-full h-28 flex flex-col justify-center p-4  text-gray-600 border rounded-lg">
       <div className="flex justify-between font-bold">
@@ -29,4 +29,4 @@ function Cliente({ nome, data, description, handleClick, handleEdit }) {
   )
 }
 
-export default Cliente
+export default Schedules

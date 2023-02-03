@@ -2,8 +2,9 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
+import CustomInput from '../../components/input-component'
 
-function Novo() {
+function New() {
   const [name, setName] = useState('')
   const [date, setDate] = useState('')
   const [description, setDescription] = useState('')
@@ -15,9 +16,7 @@ function Novo() {
     setError,
     formState: { errors },
   } = useForm()
-  const onSubmit = (data) => console.log(data)
 
-  const watchPassword = watch('name')
   const navigate = useNavigate()
 
   const hoToBack = () => {
@@ -49,18 +48,16 @@ function Novo() {
         Novo cadastro
       </h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
+      <form onSubmit={handleSubmit(onsubmit)} className="flex flex-col">
         <label htmlFor="">Nome</label>
         {errors.input?.type === 'required' && (
           <small role="alert" className="text-red-500">
             campo obrigatório
           </small>
         )}
-        <input
-          className="w-full p-2 mt-2 mb-5 bg-slate-100 border"
+        <CustomInput
           type="text"
           value={name}
-          placeholder="Digite o nome do seu compromisso..."
           onChange={(e) => setName(e.target.value)}
         />
 
@@ -71,9 +68,8 @@ function Novo() {
           </small>
         )}
         <label htmlFor="">Data/Horário</label>
-        <input
-          className="w-full bg-slate-100 p-2 mt-2 mb-5"
-          type="datetime-local"
+        <CustomInput
+          type={'datetime-local'}
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />
@@ -103,4 +99,4 @@ function Novo() {
   )
 }
 
-export default Novo
+export default New

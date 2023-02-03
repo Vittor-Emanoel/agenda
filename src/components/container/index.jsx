@@ -2,12 +2,10 @@ import axios from 'axios'
 import moment from 'moment'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import 'react-toastify/dist/ReactToastify.css'
-import Cliente from '../cliente'
+import Schedules from '../schedules'
 
 function Container() {
   const [dados, setDados] = useState([])
-  const [alert, setAlert] = useState(false)
 
   const navigate = useNavigate()
 
@@ -45,7 +43,7 @@ function Container() {
     <div className="w-full max-h-min flex  justify-center ">
       <div className="flex w-1/3 h-64 mt-2 flex-col gap-6 overflow-auto">
         {dados.map((cliente) => (
-          <Cliente
+          <Schedules
             key={cliente._id}
             nome={cliente.name}
             data={moment(cliente.date).format('DD/MM/YYYY HH:mm:ss')}
@@ -55,7 +53,6 @@ function Container() {
           />
         ))}
       </div>
-      {/* <AlertComponent /> */}
     </div>
   )
 }
