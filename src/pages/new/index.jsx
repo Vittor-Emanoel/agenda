@@ -26,14 +26,11 @@ function New() {
   const handlePost = async (e) => {
     e.preventDefault()
     try {
-      const { data } = await axios.post(
-        'https://api-todo-sigma.vercel.app/agendamentos',
-        {
-          name: name,
-          date: date,
-          description: description,
-        }
-      )
+      await axios.post('https://api-todo-sigma.vercel.app/agendamentos', {
+        name: name,
+        date: date,
+        description: description,
+      })
       await hoToBack()
     } catch (error) {
       setError('input', {
