@@ -5,7 +5,7 @@ function Header() {
   const navigate = useNavigate()
 
   const handleNavigate = () => {
-    navigate('/novo')
+    navigate('/new')
   }
 
   return (
