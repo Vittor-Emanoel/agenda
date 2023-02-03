@@ -6,8 +6,9 @@ export const GlobalContext = createContext({
   name: String,
   date: String,
   description: [],
-  handlePost: () => {},
+  fetchApi: () => {},
   handleClick: () => {},
+  findById: () => {},
 })
 
 export const GlobalProvider = ({ children }) => {
@@ -53,8 +54,9 @@ export const GlobalProvider = ({ children }) => {
         setDescription,
         description,
         name,
-        handlePost,
         handleClick,
+        fetchApi,
+        findById,
       }}
     >
       {children}
