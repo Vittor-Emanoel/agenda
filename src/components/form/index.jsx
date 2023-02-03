@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { GlobalContext } from '../../contexts/globalContext'
 import CustomInput from '../input-component'
 
-function Form() {
+function Form({ title }) {
   const {
     date,
     setName,
@@ -17,7 +17,7 @@ function Form() {
   return (
     <div className="w-1/3 flex flex-col m-auto mt-16 ">
       <h1 className="font-extrabold text-4xl bg-transparent text-transparent bg-clip-text text-center mb-5">
-        OLÁ
+        {title}
       </h1>
 
       <form className="flex flex-col">

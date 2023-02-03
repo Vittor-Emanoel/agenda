@@ -1,41 +1,16 @@
 import moment from 'moment'
 import { useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../../contexts/globalContext'
 import Schedules from '../schedules'
 
 function Container() {
   const { dados, handleClick } = useContext(GlobalContext)
+  const navigate = useNavigate()
 
-  // const fetchApi = async () => {
-  //   try {
-  //     const { data } = await axios.get(
-  //       'https://api-todo-sigma.vercel.app/agendamentos'
-  //     )
-  //     setDados(data)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
-  // const handleClick = async (id) => {
-  //   try {
-  //     const response = await axios.delete(
-  //       `https://api-todo-sigma.vercel.app/agendamentos/${id}`
-  //     )
-  //     await fetchApi()
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
-  // const handleEdit = async (id) => {
-  //   navigate(`/edit/${id}`)
-  // }
-
-  // useEffect(() => {
-  //   fetchApi()
-  // }, [])
-
+  const handleEdit = (id) => {
+    navigate(`/edit/${id}`)
+  }
   return (
     <div className="w-full max-h-min flex  justify-center ">
       <div className="flex w-1/3 h-64 mt-2 flex-col gap-6 overflow-auto">
