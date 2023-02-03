@@ -27,20 +27,6 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
-  const handlePost = async (e) => {
-    e.preventDefault()
-    try {
-      await axios.post('https://api-todo-sigma.vercel.app/agendamentos', {
-        name: name,
-        date: date,
-        description: description,
-      })
-      await hoToBack()
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   const handleClick = async (id) => {
     try {
       const response = await axios.delete(
