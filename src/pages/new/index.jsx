@@ -28,7 +28,7 @@ function New() {
   }
 
   return (
-    <div className="w-1/3 flex flex-col m-auto mt-16 border max-sm:w-4/5 ">
+    <div className="w-1/3 flex flex-col m-auto mt-16  max-sm:w-4/5 ">
       <h1 className="font-extrabold text-4xl bg-transparent text-transparent bg-clip-text text-center mb-5">
         Cadastrar novo
       </h1>
