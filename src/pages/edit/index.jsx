@@ -1,4 +1,5 @@
 import axios from 'axios'
+import moment from 'moment/moment'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
@@ -68,7 +69,7 @@ function EditPage() {
         <input
           className="w-full p-2 mt-2 mb-5 bg-slate-100 border"
           type="datetime-local"
-          value={date}
+          value={moment.utc(date).format('YYYY-MM-DDTHH:mm:ss')}
           onChange={(e) => setDate(e.target.value)}
         />
 
