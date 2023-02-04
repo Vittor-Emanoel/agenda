@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         button: ' rgb(45, 164, 78)',
+        loading: ' rgba(0, 0, 0, 0.5)',
       },
     },
   },

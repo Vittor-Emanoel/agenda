@@ -1,13 +1,12 @@
 import axios from 'axios'
-import { useContext } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { GlobalContext } from '../../contexts/globalContext'
 
 function New() {
   const navigate = useNavigate()
-
-  const { date, setName, setDate, setDescription, description, name } =
-    useContext(GlobalContext)
+  const [name, setName] = useState('')
+  const [date, setDate] = useState('')
+  const [description, setDescription] = useState('')
 
   const hoToBack = () => {
     navigate('/')

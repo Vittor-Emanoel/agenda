@@ -1,18 +1,24 @@
 import axios from 'axios'
 import moment from 'moment/moment'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import Loading from '../../components/loading'
+import { GlobalContext } from '../../contexts/globalContext'
 
 function EditPage() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const { isLoading } = useContext(GlobalContext)
 
   const [name, setName] = useState('')
   const [date, setDate] = useState('')
   const [description, setDescription] = useState('')
 
+  const [isFetch, setIsFetch] = useState(false)
+
   const fetch = async () => {
     try {
+      setIsFetch(true)
       const { data } = await axios.get(
         `https://api-todo-sigma.vercel.app/agendamentos/${id}`
       )
@@ -21,12 +27,17 @@ function EditPage() {
       setDescription(data.description)
     } catch (error) {
       console.log(error)
+    } finally {
+      setIsFetch(false)
     }
   }
 
   const handleEdit = async (e) => {
     e.preventDefault()
     try {
+      // {
+      //   isLoading && <Loading />
+      // }
       const { data } = await axios.patch(
         `https://api-todo-sigma.vercel.app/agendamentos/${id}`,
         {
@@ -54,6 +65,7 @@ function EditPage() {
       <h1 className="font-extrabold text-4xl bg-transparent text-transparent bg-clip-text text-center mb-5">
         Cadastrar novo
       </h1>
+      {isFetch && <Loading />}
 
       <form method="PATCH" className="flex flex-col">
         <label htmlFor="">Nome</label>
