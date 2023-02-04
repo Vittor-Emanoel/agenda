@@ -1,16 +1,21 @@
 import moment from 'moment'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../../contexts/globalContext'
 import Schedules from '../schedules'
 
 function Container() {
-  const { dados, handleClick } = useContext(GlobalContext)
+  const { dados, handleClick, fetchApi } = useContext(GlobalContext)
   const navigate = useNavigate()
 
   const handleEdit = (id) => {
     navigate(`/edit/${id}`)
   }
+
+  useEffect(() => {
+    fetchApi()
+  }, [])
+
   return (
     <div className="w-full max-h-min flex  justify-center ">
       <div className="flex w-1/3 h-64 mt-2 flex-col gap-6 overflow-auto">

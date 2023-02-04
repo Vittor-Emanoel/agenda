@@ -8,13 +8,11 @@ export const GlobalContext = createContext({
   description: [],
   fetchApi: () => {},
   handleClick: () => {},
+  setDados: () => {},
 })
 
 export const GlobalProvider = ({ children }) => {
   const [dados, setDados] = useState([])
-  const [name, setName] = useState('')
-  const [date, setDate] = useState('')
-  const [description, setDescription] = useState('')
 
   const fetchApi = async () => {
     try {
@@ -47,12 +45,7 @@ export const GlobalProvider = ({ children }) => {
       value={{
         setDados,
         dados,
-        date,
-        setName,
-        setDate,
-        setDescription,
-        description,
-        name,
+
         handleClick,
         fetchApi,
       }}

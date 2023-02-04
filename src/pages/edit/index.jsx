@@ -1,17 +1,16 @@
 import axios from 'axios'
-import moment from 'moment'
-import { useContext, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import CustomInput from '../../components/input-component'
-import { GlobalContext } from '../../contexts/globalContext'
 
 function EditPage() {
-  const navigate = useNavigate()
   const { id } = useParams()
-  const { date, name, description, setName, setDate, setDescription } =
-    useContext(GlobalContext)
+  const navigate = useNavigate()
 
-  const findById = async (id) => {
+  const [name, setName] = useState('')
+  const [date, setDate] = useState('')
+  const [description, setDescription] = useState('')
+
+  const fetch = async () => {
     try {
       const { data } = await axios.get(
         `https://api-todo-sigma.vercel.app/agendamentos/${id}`
@@ -23,54 +22,53 @@ function EditPage() {
       console.log(error)
     }
   }
-  const hoToBack = () => {
-    navigate('/')
-  }
 
-  const handleEditPost = async (e) => {
+  const handleEdit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.put(
-        `https://api-todo-sigma.vercel.app/agendamentos/${id}`
+      const { data } = await axios.patch(
+        `https://api-todo-sigma.vercel.app/agendamentos/${id}`,
+        {
+          name: name,
+          date: date,
+          description: description,
+        }
       )
-      console.log(response)
-      await hoToBack()
-    } catch (error) {
-      console.log(error)
+      await homeToBack()
+    } catch (err) {
+      console.log(err)
     }
   }
 
+  const homeToBack = () => {
+    navigate('/')
+  }
+
   useEffect(() => {
-    findById(id)
-  }, [id])
+    fetch()
+  }, [])
+
   return (
     <div className="w-1/3 flex flex-col m-auto mt-16 ">
       <h1 className="font-extrabold text-4xl bg-transparent text-transparent bg-clip-text text-center mb-5">
-        Editar Cadastro
+        Cadastrar novo
       </h1>
 
-      <form className="flex flex-col">
+      <form method="PATCH" className="flex flex-col">
         <label htmlFor="">Nome</label>
-        {/* 
-      <small role="alert" className="text-red-500">
-        campo obrigatório
-      </small> */}
 
-        <CustomInput
+        <input
+          className="w-full p-2 mt-2 mb-5 bg-slate-100 border"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
 
-        {/* <small role="alert" className="text-red-500">
-        {' '}
-        campo obrigatório
-      </small> */}
-
         <label htmlFor="">Data/Horário</label>
-        <CustomInput
-          type={'datetime-local'}
-          value={moment(date).format('YYYY-MM-DDTHH:mm')}
+        <input
+          className="w-full p-2 mt-2 mb-5 bg-slate-100 border"
+          type="datetime-local"
+          value={date}
           onChange={(e) => setDate(e.target.value)}
         />
 
@@ -90,7 +88,7 @@ function EditPage() {
         <button
           type="submit"
           className="mt-4  p-2 bg-button text-white"
-          onClick={handleEditPost}
+          onClick={handleEdit}
         >
           Salvar
         </button>
