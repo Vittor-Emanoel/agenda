@@ -16,7 +16,7 @@ function Header() {
         </h1>
 
         <button onClick={handleNavigate}>
-          <Plus size={32} />
+          <Plus size={32} color="gray" />
         </button>
       </div>
       <div className="w-full flex justify-center">

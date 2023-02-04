@@ -6,22 +6,28 @@ export const GlobalContext = createContext({
   name: String,
   date: String,
   description: [],
+  isLoading: Boolean,
   fetchApi: () => {},
   handleClick: () => {},
   setDados: () => {},
+  setLoading: () => {},
 })
 
 export const GlobalProvider = ({ children }) => {
   const [dados, setDados] = useState([])
+  const [isLoading, setLoading] = useState(false)
 
   const fetchApi = async () => {
     try {
+      setLoading(true)
       const { data } = await axios.get(
         'https://api-todo-sigma.vercel.app/agendamentos'
       )
       setDados(data)
     } catch (err) {
       console.log(err)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -45,9 +51,10 @@ export const GlobalProvider = ({ children }) => {
       value={{
         setDados,
         dados,
-
         handleClick,
         fetchApi,
+        isLoading,
+        setLoading,
       }}
     >
       {children}
