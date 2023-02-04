@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <header className="min-w-full flex justify-center items-center flex-col mt-12">
-      <div className="flex  justify-between gap-12 mt-8 max-w-1/3   md:itens-center border">
+      <div className=" w-1/3 flex justify-between gap-12 mt-8 max-sm:w-5/6   md:itens-center">
         <h1 className=" font-extrabold text-4xl bg-transparent text-transparent bg-clip-text max-sm:text-4xl">
           MyAgenda
         </h1>

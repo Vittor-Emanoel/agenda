@@ -3,12 +3,12 @@ import { Pencil, Trash } from 'phosphor-react'
 function Schedules({ nome, data, description, handleClick, handleEdit }) {
   return (
     <div className="w-4/3 h-28 flex flex-col justify-center p-4  text-gray-600 border rounded-lg ">
-      <div className="flex justify-between font-bold  w-full">
+      <div className="flex justify-between font-bold  w-full ">
         <h2>NOME</h2>
         <h2>DIA/HORA</h2>
       </div>
-      <div className="flex justify-between font-light ">
-        <small>{nome}</small>
+      <div className="flex justify-between font-light max-sm:text-xl">
+        <small className="max-sm:text-xl">{nome}</small>
         <small>{data}</small>
       </div>
       <div>
@@ -23,7 +23,7 @@ function Schedules({ nome, data, description, handleClick, handleEdit }) {
             </button>
           </div>
         </strong>
-        <small>{description}</small>
+        <small className="max-sm:text-sm">{description}</small>
       </div>
     </div>
   )
