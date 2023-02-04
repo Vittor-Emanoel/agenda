@@ -18,8 +18,8 @@ function Container() {
   }, [])
 
   return (
-    <div className="w-full max-h-min flex  justify-center ">
-      <div className="flex w-1/3 h-64 mt-2 flex-col gap-6 overflow-auto">
+    <div className="w-full max-h-min flex  justify-center  ">
+      <div className="flex w-1/3 h-64 mt-2 flex-col gap-6 overflow-auto max-sm:w-4/5 ">
         {isLoading && <Loading />}
 
         {dados.map((cliente) => (

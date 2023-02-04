@@ -61,9 +61,9 @@ function EditPage() {
   }, [])
 
   return (
-    <div className="w-1/3 flex flex-col m-auto mt-16 ">
-      <h1 className="font-extrabold text-4xl bg-transparent text-transparent bg-clip-text text-center mb-5">
-        Cadastrar novo
+    <div className="w-1/3 flex flex-col m-auto mt-16 max-sm:w-4/5  ">
+      <h1 className="font-extrabold text-4xl bg-transparent text-transparent bg-clip-text text-center mb-5 ">
+        Editar Cadastro
       </h1>
       {isFetch && <Loading />}
 
@@ -100,13 +100,13 @@ function EditPage() {
         ></textarea>
         <button
           type="submit"
-          className="mt-4  p-2 bg-button text-white"
+          className="mt-12  p-2 bg-button text-white rounded-lg text-xl"
           onClick={handleEdit}
         >
           Salvar
         </button>
 
-        <Link to="/" className="text-center mt-2">
+        <Link to="/" className="text-center mt-2 text-xl">
           voltar
         </Link>
       </form>

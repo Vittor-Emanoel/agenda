@@ -2,8 +2,8 @@ import { Pencil, Trash } from 'phosphor-react'
 
 function Schedules({ nome, data, description, handleClick, handleEdit }) {
   return (
-    <div className="w-full h-28 flex flex-col justify-center p-4  text-gray-600 border rounded-lg">
-      <div className="flex justify-between font-bold">
+    <div className="w-4/3 h-28 flex flex-col justify-center p-4  text-gray-600 border rounded-lg ">
+      <div className="flex justify-between font-bold  w-full">
         <h2>NOME</h2>
         <h2>DIA/HORA</h2>
       </div>

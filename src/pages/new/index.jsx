@@ -28,7 +28,7 @@ function New() {
   }
 
   return (
-    <div className="w-1/3 flex flex-col m-auto mt-16 ">
+    <div className="w-1/3 flex flex-col m-auto mt-16 border max-sm:w-4/5 ">
       <h1 className="font-extrabold text-4xl bg-transparent text-transparent bg-clip-text text-center mb-5">
         Cadastrar novo
       </h1>
@@ -43,6 +43,7 @@ function New() {
           className="w-full p-2 mt-2 mb-5 bg-slate-100 border"
           type="text"
           value={name}
+          placeholder="O que deseja adicionar?"
           onChange={(e) => setName(e.target.value)}
         />
 
@@ -74,13 +75,13 @@ function New() {
         ></textarea>
         <button
           type="submit"
-          className="mt-4  p-2 bg-button text-white"
+          className="mt-12  p-2 bg-button text-white rounded-lg text-xl"
           onClick={handlePost}
         >
           Salvar
         </button>
 
-        <Link to="/" className="text-center mt-2">
+        <Link to="/" className="text-center mt-2 text-xl">
           voltar
         </Link>
       </form>
