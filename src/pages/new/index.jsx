@@ -34,7 +34,7 @@ function New() {
       </h1>
 
       <form method="POST" className="flex flex-col">
-        <label htmlFor="">Nome</label>
+        <label htmlFor="">Nome do compromisso</label>
         {/* 
         <small role="alert" className="text-red-500">
           campo obrigatório
@@ -52,7 +52,7 @@ function New() {
           campo obrigatório
         </small> */}
 
-        <label htmlFor="">Data/Horário</label>
+        <label htmlFor="">Data|Horário</label>
         <input
           className="w-full p-2 mt-2 mb-5 bg-slate-100 border"
           type="datetime-local"

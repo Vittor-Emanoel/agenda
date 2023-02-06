@@ -68,7 +68,7 @@ function EditPage() {
       {isFetch && <Loading />}
 
       <form method="PATCH" className="flex flex-col">
-        <label htmlFor="">Nome</label>
+        <label htmlFor="">Nome do compromisso</label>
 
         <input
           className="w-full p-2 mt-2 mb-5 bg-slate-100 border"
