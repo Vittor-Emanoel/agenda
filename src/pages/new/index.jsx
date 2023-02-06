@@ -23,7 +23,7 @@ function New() {
 
       await hoToBack()
     } catch (error) {
-      console.log(error)
+      alert('todos os campos precisam está preenchidos!')
     }
   }
 
@@ -75,13 +75,13 @@ function New() {
         ></textarea>
         <button
           type="submit"
-          className="mt-12  p-2 bg-button text-white rounded-lg text-xl"
+          className="mt-12  p-2 bg-button text-white rounded-lg text-lg max-sm:text-lg"
           onClick={handlePost}
         >
           Salvar
         </button>
 
-        <Link to="/" className="text-center mt-2 text-xl">
+        <Link to="/" className="text-center mt-2 text-lg max-sm:text-lg">
           voltar
         </Link>
       </form>

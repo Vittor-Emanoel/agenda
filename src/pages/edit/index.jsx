@@ -81,7 +81,7 @@ function EditPage() {
         <input
           className="w-full p-2 mt-2 mb-5 bg-slate-100 border"
           type="datetime-local"
-          value={moment.utc(date).format('YYYY-MM-DDTHH:mm:ss')}
+          value={moment.utc(date).format('YYYY-MM-DDTHH:mm')}
           onChange={(e) => setDate(e.target.value)}
         />
 
@@ -100,13 +100,13 @@ function EditPage() {
         ></textarea>
         <button
           type="submit"
-          className="mt-12  p-2 bg-button text-white rounded-lg text-xl"
+          className="mt-12  p-2 bg-button text-white rounded-lg text-lg max-sm:text-lg"
           onClick={handleEdit}
         >
           Salvar
         </button>
 
-        <Link to="/" className="text-center mt-2 text-xl">
+        <Link to="/" className="text-center mt-2 text-lg max-sm:text-lg">
           voltar
         </Link>
       </form>

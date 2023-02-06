@@ -26,7 +26,7 @@ function Container() {
           <Schedules
             key={cliente._id}
             nome={cliente.name}
-            data={moment.utc(cliente.date).format('DD/MM/YYYY HH:mm:ss')}
+            data={moment.utc(cliente.date).format('DD/MM/YYYY HH:mm')}
             description={cliente.description}
             handleClick={() => handleClick(cliente._id)}
             handleEdit={() => handleEdit(cliente._id)}
